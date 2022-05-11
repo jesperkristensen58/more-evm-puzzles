@@ -32,4 +32,4 @@ contract Puzzle5 {
 }
 ```
 We'll also need to send at least 2 wei to the puzzle contract.
-6. 
+6. TODO - The contract copies the calldata in memory. We need to supply a minimum of TODO bytes of calldata and also have MSIZE - CALLDATA = 3. How is this achievable? Well, memory expands in 32 byte words
