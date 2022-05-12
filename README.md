@@ -33,3 +33,4 @@ contract Puzzle5 {
 ```
 We'll also need to send at least 2 wei to the puzzle contract.
 6. We must choose a call data size such that after the memory expansion we have MSIZE - CALLDATASIZE = 3. Since memory expands in 32 byte chunks we can choose any CALLDATASIZE x where x > 32 (to meet the first constraint) and x % 32 == 29. The smallest choice is x = 61.
+7. You have to pass in a call value of 17 to cause a wraparound in the addition.

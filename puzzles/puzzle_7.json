@@ -1,5 +1,5 @@
 {
-  "code": "36600080373660006000F03B600114601357FD5B00",
-  "askForValue": false,
-  "askForData": true
+  "code": "7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03401600114602a57fd5b00",
+  "askForValue": true,
+  "askForData": false
 }
