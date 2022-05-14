@@ -36,3 +36,4 @@ We'll also need to send at least 2 wei to the puzzle contract.
 7. You have to pass in a call value of 17 to cause a wraparound in the addition.
 8. This puzzle simulates a for loop that executes CALLVALUE number of times. After the loop it checks the amount of gas consumed. To match
 the gas consumed with the expected value you must set CALLVALUE = 4
+9. This puzzle code refuses to receive ether. BUT you can FORCE ether into it by using the SELFDESTRUCT opcode in your calldata contract. So that's what we have to do.
