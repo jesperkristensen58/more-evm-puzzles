@@ -1,8 +1,8 @@
-# (More) EVM puzzles
+# 10 more EVM puzzles
 
-Inspired by the 10 EVM puzzles created by [@fvictorio](https://github.com/fvictorio/evm-puzzles), here are 10 more. These ones are harder and more focused on the CREATE and CALL opcodes. Have fun!
+Here are 10 more puzzles, inspired by the 10 EVM puzzles created by [@fvictorio](https://github.com/fvictorio/evm-puzzles). These ones are harder and more focused on the CREATE and CALL opcodes. Have fun!
 
-Each puzzle consists on sending a successful transaction to a contract. The bytecode of the contract is provided, and you need to fill the transaction data that won't revert the execution.
+Each puzzle consists of sending a successful transaction to a contract. The bytecode of the contract is provided, and you need to fill the transaction CALLDATA and CALLVALUE that won't revert the execution.
 
 ## How to play
 
