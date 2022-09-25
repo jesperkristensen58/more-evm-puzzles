@@ -1,3 +1,16 @@
+# My Solutions
+
+- [ ] Puzzle 1:
+- [ ] Puzzle 2:
+- [ ] Puzzle 3:
+- [ ] Puzzle 4:
+- [ ] Puzzle 5:
+- [ ] Puzzle 6:
+- [ ] Puzzle 7:
+- [ ] Puzzle 8:
+- [ ] Puzzle 9:
+- [ ] Puzzle 10:
+
 # 10 more EVM puzzles
 
 Here are 10 more puzzles, inspired by the 10 EVM puzzles created by [@fvictorio](https://github.com/fvictorio/evm-puzzles). These ones are harder and more focused on the CREATE and CALL opcodes. Have fun!
