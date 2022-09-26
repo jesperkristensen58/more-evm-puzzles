@@ -1,6 +1,7 @@
 # My Solutions
 
-- [ ] Puzzle 1:
+- [x] Puzzle 1: Here I need to compute (CALLVALUE) ** (CALLDATASIZE). So I can just pick CALLDATASIZE=1 to make it simpler. This means CALLVALUE simply dictates where JUMP goes (the hex of the destination). I see that I can JUMP all the way to the end to hex 47. So I actually just need to provide CALLVALUE=0x47=71 and CALLDATA=0x01 (e.g., just something with size 1).
+
 - [ ] Puzzle 2:
 - [ ] Puzzle 3:
 - [ ] Puzzle 4:
