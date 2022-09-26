@@ -10,7 +10,8 @@
 
 - [x] Puzzle 5: We need to send in CALLDATA that is at least 0x20 in size. Later on, we also need <CALLDATASIZE> - <MSIZE> = 0x03 = 3. So MSIZE is 0x40 thus we need to send in CALLDATA of size 0x40-0x03=61. We can do this in Python with `"0x" + "FF" * 61` = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF. That's the answer.
 
-- [ ] Puzzle 6:
+- [x] Puzzle 6: We simply need to send in a value that when added to 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0 gives 1. We can do this by overflowing it. So if we send in 17 this would overflow by 1 because: if we send 15=0xf this simply is 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, if we send in 16=0x10 we get an overflow to exactly 0: 0x0 so we need 17 to get 0x1.
+
 - [ ] Puzzle 7:
 - [ ] Puzzle 8:
 - [ ] Puzzle 9:
