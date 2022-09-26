@@ -14,7 +14,8 @@
 
 - [x] Puzzle 7: We need a value in Wei which allows us to run around the loop as many times as we need in order for the gas to be consumed so much that the difference between the gas after this loop and the initial gas is 0xa6=166. The loop is basically over i where i ranges from 0 to the CALLVALUE. So the question is, how many times should we iterate in the loop until we hit a GAS difference of 166? The answer is 4 as can be found from trial and error (alternatively the exact gas usage can be computed from the opcodes within the loop).
 
-- [ ] Puzzle 8:
+- [x] Puzzle 8: In this one, we don't need to send in any CALLVALUE, because the JUMPI treats the NOT(ISZERO(CALLVALUE)) as true even if its value is fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe. So the JUMP happens to JUMPDEST 0x7 which is good. Next a contract is created with the CALLDATA. But we can just send in no CALLDATA and that is valid init code. We need the SELFBALANCE to be 0, but that's fine we just don't send any CALLVALUE in anyway in the beginning so that is satisfied. We then make a call to the contract we just deployed. But the init code was empty (including the runtime code). So nothing is done or returned, but this still means that "1" is the result of the CALL - because technically the call was successful (it did not revert). This "1" from the CALL is all we need to JUMP to the next destination which is 0x28. At that point we simply need to ensure that SELFBALANCE is 0 (which hasn't changed from 0 since last we checked) and we are done. So the realization here is that JUMPI can base used with something other than "0x1" as it's truthy value. We can do anything that is not 0x0. In this case we just used the "ffff..." from the beginning of this paragraph. So the answer is: simply don't send in any CALLVALUE and don't send in any CALLDATA!
+
 - [ ] Puzzle 9:
 - [ ] Puzzle 10:
 
