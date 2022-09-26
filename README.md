@@ -12,7 +12,8 @@
 
 - [x] Puzzle 6: We simply need to send in a value that when added to 0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0 gives 1. We can do this by overflowing it. So if we send in 17 this would overflow by 1 because: if we send 15=0xf this simply is 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff, if we send in 16=0x10 we get an overflow to exactly 0: 0x0 so we need 17 to get 0x1.
 
-- [ ] Puzzle 7:
+- [x] Puzzle 7: We need a value in Wei which allows us to run around the loop as many times as we need in order for the gas to be consumed so much that the difference between the gas after this loop and the initial gas is 0xa6=166. The loop is basically over i where i ranges from 0 to the CALLVALUE. So the question is, how many times should we iterate in the loop until we hit a GAS difference of 166? The answer is 4 as can be found from trial and error (alternatively the exact gas usage can be computed from the opcodes within the loop).
+
 - [ ] Puzzle 8:
 - [ ] Puzzle 9:
 - [ ] Puzzle 10:
