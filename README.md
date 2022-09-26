@@ -8,7 +8,8 @@
 
 - [x] Puzzle 4: In this example we need to send in init code via CREATE which, when done, holds half the VALUE we originally sent in. We can do this by having the init code send back half the incoming value to ORIGIN (tx.origin). Note, we don't need any runtime code for this one. So just create init code that does this and then send in some value that is divisible by 2. So we can use VALUE=4, e.g. What data to send in? The init code that transfers half the incoming Wei to tx.origin is: 0x600080808060023404325AF15060006000F3. Here is why: We simply push data to make a CALL: 6000808080(0,0,0,0 on the stack) 60023404 (<- divide(04) incoming callvalue(34) by 2(6002)) 325AF1(<-then specifiy the recipient (tx.origin=32), then put gas for the call(5A), and finally make the CALL(F1) forwarding half the incoming wei). That's it, the init code will return to CREATE and the created address will now have 2 Wei in it. This will mean that 4/2=2 and we compare with 2 in the puzzle code and jump if 2==2. This solves it.
 
-- [ ] Puzzle 5:
+- [x] Puzzle 5: We need to send in CALLDATA that is at least 0x20 in size. Later on, we also need <CALLDATASIZE> - <MSIZE> = 0x03 = 3. So MSIZE is 0x40 thus we need to send in CALLDATA of size 0x40-0x03=61. We can do this in Python with `"0x" + "FF" * 61` = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF. That's the answer.
+
 - [ ] Puzzle 6:
 - [ ] Puzzle 7:
 - [ ] Puzzle 8:
