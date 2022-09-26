@@ -1,0 +1,22 @@
+pragma solidity 0.8.0;
+
+contract FINDHASH {
+    event Val(bytes32, uint8);
+    event Sol(uint256);
+
+    constructor() {
+
+        uint numIts = 1024;
+        for (uint256 i = 0; i < numIts; i++) {
+            bytes32 res = keccak256(abi.encode(i));
+            uint8 resuint = uint8(uint256(res) / 2 ** 248);
+
+            if (resuint == 0xa8){
+                emit Sol(i);
+                break;
+            }
+
+            emit Val(res, resuint);
+        }
+    }
+}
