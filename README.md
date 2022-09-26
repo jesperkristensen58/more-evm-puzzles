@@ -6,7 +6,8 @@
 
 - [x] Puzzle 3: Here, we need the base init code again (used in puzzle 2) but now the runtime code simply needs to modify the storage location 5 to contain "aa". The runtime code that does this against DELEGATECALL (b/c that will change the storage location in the calling contract when running *our runtime code*) is simply: 60 aa 60 05 55, so we push aa (the value) then 05 (the key) and then SSTORE it with 55. This will modify the caller's storage location (since we use DELEGATECALL). The size of this runtime code is 05. So modify the init code to that reality and we get: 0x<6005600C60003960056000F3><60aa600555> as the answer (I highlighted the init code and runtime code again, note how we use 60 05 in the beginning to signal the code size of 5 bytes).
 
-- [ ] Puzzle 4:
+- [x] Puzzle 4: In this example we need to send in init code via CREATE which, when done, holds half the VALUE we originally sent in. We can do this by having the init code send back half the incoming value to ORIGIN (tx.origin). Note, we don't need any runtime code for this one. So just create init code that does this and then send in some value that is divisible by 2. So we can use VALUE=4, e.g. What data to send in? The init code that transfers half the incoming Wei to tx.origin is: 0x600080808060023404325AF15060006000F3. Here is why: We simply push data to make a CALL: 6000808080(0,0,0,0 on the stack) 60023404 (<- divide(04) incoming callvalue(34) by 2(6002)) 325AF1(<-then specifiy the recipient (tx.origin=32), then put gas for the call(5A), and finally make the CALL(F1) forwarding half the incoming wei). That's it, the init code will return to CREATE and the created address will now have 2 Wei in it. This will mean that 4/2=2 and we compare with 2 in the puzzle code and jump if 2==2. This solves it.
+
 - [ ] Puzzle 5:
 - [ ] Puzzle 6:
 - [ ] Puzzle 7:
