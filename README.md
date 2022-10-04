@@ -39,3 +39,10 @@ And the game will start.
 In some puzzles you only need to provide the value that will be sent to the contract, in others the calldata, and in others both values.
 
 You can use [`evm.codes`](https://www.evm.codes/)'s reference and playground to work through this.
+
+## Follow me on Twitter!
+
+[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/cryptojesperk.svg?style=social&label=Follow%20%40cryptojesperk)](https://twitter.com/cryptojesperk)
+
+## License
+This project uses the following license: [MIT](https://github.com/bisguzar/twitter-scraper/blob/master/LICENSE).
